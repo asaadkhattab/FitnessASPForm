@@ -21,7 +21,7 @@ namespace Treehouse.FitnessFrog.Controllers
         public ActionResult Index()
         {
             List<Entry> entries = _entriesRepository.GetEntries();
-
+            
             // Calculate the total activity.
             double totalActivity = entries
                 .Where(e => e.Exclude == false)
@@ -40,6 +40,12 @@ namespace Treehouse.FitnessFrog.Controllers
         }
 
         public ActionResult Add()
+        {
+            return View();
+        }
+
+        [ActionName("Add"), HttpPost]
+        public ActionResult AddPost()
         {
             return View();
         }
